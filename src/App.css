@@ -62,6 +62,7 @@ h1 {
   border-color: white;
   max-width: 500px;
   max-height: 500px;
+  z-index: 1;
 }
 
 #wag-container {
@@ -84,6 +85,9 @@ h1 {
   color: #003300;
   display: flex;
   flex: 70%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 #wags-and-comments {
@@ -143,20 +147,17 @@ button {
 }
 
 .like-container {
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.wag-appear-and-fade {
-  width: 100px;
-  height: 100px;
-  transition: 0.5s;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.wag-appear-and-fade.show {
-  opacity: 1;
-  visibility: visible;
+.wag-image {
+  display: flex;
+  right: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  z-index: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
 }

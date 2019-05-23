@@ -4,6 +4,7 @@ import ShowOrHideCommentsButton from './ShowOrHideCommentsButton';
 import LikeButton from './LikeButton';
 import LeftArrowButton from './LeftArrowButton';
 import RightArrowButton from './RightArrowButton';
+import Wag from './Images/Wag.png'
 
 const PostDisplay = (props) => {
     return (props.posts.map((postItem) => {
@@ -16,13 +17,14 @@ const PostDisplay = (props) => {
                     onLeftArrowButtonClick={props.onLeftArrowButtonClick}
                 />
                 </div>
-                <div className="column">
+                <div id="images-div" className="column">
                     <img 
                         src={postItem.images[postItem.displayedImageIndex].image} 
                         alt={postItem.images[0].alt} 
                         onDoubleClick={(event) => props.onDoubleClick(event, postItem)}
                         className="image-container">
                     </img>
+                    <img src={Wag} alt="wag" className="wag-image" />
                 </div>
                 <div className="column">
                 <RightArrowButton

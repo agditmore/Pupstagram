@@ -126,13 +126,15 @@ class App extends React.Component {
   }
 
   handleDoubleClick = (event, changedPostItem) => {
-    this.handleLikeButtonClick(event, changedPostItem);
-    if (changedPostItem.likedByMe === true) {
+    if (changedPostItem.likedByMe === false) {
+      updatedNumberOfLikes = changedPostItem.numberOfLikes + 1;
       this.setState({
         posts: this.state.posts.map((postItem) => postItem.id === changedPostItem.id ? 
         {
           ...postItem,
-          showWagImage: true
+          numberOfLikes: updatedNumberOfLikes,
+          likedByMe: !postItem.likedByMe,
+          showWagImage: true,
         }
         :postItem)
       })
@@ -145,7 +147,6 @@ class App extends React.Component {
         :postItem)
       }), 2000)
     }
-    
   }
 
   handleRightArrowButtonClick = (event, changedPostItem) => {
