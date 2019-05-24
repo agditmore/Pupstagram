@@ -15,13 +15,30 @@ class App extends React.Component {
       posts: [
         {
           id: 2,
+          poster: 'Casper',
+          location: 'The Doghaus',
           displayedImageIndex: 0,
           images: [
             {
               id: 1,
-              image: 'https://imgur.com/u3Z67xt.png',
+              image: 'https://imgur.com/4wIXQ5f.png',
               alt: 'WOW BEST DAY EVER picture'
-            }
+            },
+            {
+              id: 2,
+              image: 'https://imgur.com/QcOTaVP.png',
+              alt: 'WOW BEST DAY EVER picture'
+            },
+            {
+              id: 3,
+              image: 'https://imgur.com/ksMqZ8L.png',
+              alt: 'WOW BEST DAY EVER picture'
+            },
+            {
+              id: 4,
+              image: 'https://imgur.com/RmhKwXM.png',
+              alt: 'WOW BEST DAY EVER picture'
+            },
           ],
           caption: 'WOW BEST DAY EVER',
           numberOfLikes: 3,
@@ -35,21 +52,23 @@ class App extends React.Component {
             comment: 'omg so jelly'},
             {id: 2,
             name: 'Oliver',
-            comment: 'Save some for me!!!!!!'},
+            comment: 'Wish I were there!'},
           ]
         },
         {
           id: 1,
+          poster: 'Indy',
+          location: 'Southhound City',
           displayedImageIndex: 0,
           images: [
             {
               id: 1,
-              image: 'https://imgur.com/E91ZzL7.png',
+              image: 'https://imgur.com/dFEJIyt.png',
               alt: 'The Enemy has been spotted. BE ON ALERT! picture'
             },
             {
               id: 2,
-              image: 'https://imgur.com/dIzhvO7.png',
+              image: 'https://imgur.com/ErnQIxy.png',
               alt: 'The Enemy has been spotted. BE ON ALERT! picture'
             }
           ],
@@ -145,7 +164,7 @@ class App extends React.Component {
           showWagImage: false
         }
         :postItem)
-      }), 2000)
+      }), 1000)
     }
   }
 
@@ -183,6 +202,8 @@ class App extends React.Component {
     if (event.key === "Enter"){
       let newObject = {
         id: this.state.posts.length+1,
+        poster: 'Me',
+        location: 'Unipup',
         displayedImageIndex: 0,
         images: imageArray,
         caption: captionString,
@@ -229,6 +250,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <hr />
         <div>{this.state.coolMessage}</div>
         <NewPostInput 
           onKeyDown={this.handleEnterPress}

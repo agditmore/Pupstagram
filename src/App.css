@@ -34,19 +34,15 @@
 
 body {
   text-align: center;
-  background-color:#d1e0e0;
-  color: #003300;
+  background-color:#fafafa;
   font-size: 16px;
 }
 
 h1 {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #003300;
-  border-radius: 15px;
   margin: 40px;
-  background-color: #f0f5f5;
-  color: #003300;
+  background-color: white;
+  display: flex;
+  font-family: cursive;
 }
 
 .text-box {
@@ -60,29 +56,29 @@ h1 {
   border-style: solid;
   border-width: 15px;
   border-color: white;
-  max-width: 500px;
+  max-width: 470px;
+  min-width: 400px;
   max-height: 500px;
   z-index: 1;
 }
 
 #wag-container {
   border-style: solid;
-  background-color: #f0f5f5;
+  background-color: white;
   border-width: 1px;
   border-radius: 5px;
-  border-color: #003300;
-  color: #003300;
+  border-color: lightgray;
+  color: black;
   display: flex;
   flex: 10%;
 }
 
 #comment-container {
   border-style: solid;
-  background-color: #f0f5f5;
+  background-color: white;
   border-width: 1px;
   border-radius: 5px;
-  border-color: #003300;
-  color: #003300;
+  border-color: lightgray;
   display: flex;
   flex: 70%;
   flex-direction: row;
@@ -104,7 +100,7 @@ button {
   border-radius: 5px;
   border: 1px solid gray;
   font-size: 14px;
-  color: #003300
+  color: black;
 }
 
 .arrows-and-image-container {
@@ -161,4 +157,74 @@ button {
   position: relative;
   left: 210px;
   bottom: 320px;
+}
+
+#pupstagram-logo {
+  height: 80px;
+
+}
+
+#header-div{
+  display: flex;
+  column-count: 2;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+}
+
+.image-info-bar {
+  border-style: solid;
+  background-color: white;
+  border-width: 1px;
+  border-radius: 5px 5px 0px 0px;
+  border-color: lightgray;
+  border-bottom: none;
+  display: flex;
+  justify-content: center;
+  min-height: 40px;
+  max-width: 500px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.poster {
+  display: flex;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.location {
+  display: flex;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.caption-container {
+  border-style: solid;
+  background-color: white;
+  border-width: 1px;
+  border-radius: 0px 0px 5px 5px;
+  border-color: lightgray;
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  min-height: 40px;
+  max-width: 500px;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.main-image-div {
+  background-color: white;
+  width: 500px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgray;
+  border-top: none;
+  border-bottom: none;
 }

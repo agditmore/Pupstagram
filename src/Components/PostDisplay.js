@@ -10,6 +10,14 @@ const PostDisplay = (props) => {
     return (props.posts.map((postItem) => {
         return(
             <div key={postItem.id}>
+                <div className="image-info-bar">
+                    <div className="poster">
+                        {postItem.poster}
+                    </div>
+                    <div className="location">
+                        {postItem.location}
+                    </div>
+                </div>
             <div className="arrows-and-image-container">
                 <div className="column">
                 <LeftArrowButton
@@ -18,12 +26,14 @@ const PostDisplay = (props) => {
                 />
                 </div>
                 <div id="images-div" className="column">
-                    <img 
-                        src={postItem.images[postItem.displayedImageIndex].image} 
-                        alt={postItem.images[0].alt} 
-                        onDoubleClick={(event) => props.onDoubleClick(event, postItem)}
-                        className="image-container">
-                    </img>
+                    <div className="main-image-div">
+                        <img 
+                            src={postItem.images[postItem.displayedImageIndex].image} 
+                            alt={postItem.images[0].alt} 
+                            onDoubleClick={(event) => props.onDoubleClick(event, postItem)}
+                            className="image-container">
+                        </img>
+                    </div>
                     {postItem.showWagImage === true ?  <img src={Wag} alt="wag" className="wag-image" /> : null}
                 </div>
                 <div className="column">
@@ -33,9 +43,8 @@ const PostDisplay = (props) => {
                 />
                 </div>
             </div>
-                <br />
                 <div>
-                <p>{postItem.caption}</p>
+                <div className="caption-container"><p>{postItem.caption}</p></div>
                     <div id="wags-and-comments">
                     <div id="wag-container" className="like-container">
                         <LikeButton 
