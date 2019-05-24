@@ -5,8 +5,9 @@ const CommentDisplay = (props) => {
     return(<div>
         {props.postItem.commentLog.map((commentItem) => {
             return(
-                <div key={commentItem.comment}>
-                {commentItem.name}: {commentItem.comment}
+                <div key={commentItem.comment} className="comment-box">
+                <div className="commenter-name">{commentItem.name}</div>
+                <div className="comment">{'  ' + commentItem.comment}</div>
                 </div>
             )
         })}

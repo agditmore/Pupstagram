@@ -14,9 +14,34 @@ class App extends React.Component {
       captionString: '',
       posts: [
         {
+          id: 3,
+          poster: 'Baguette',
+          location: 'Pawshington University in St. Louis',
+          displayedImageIndex: 0,
+          images: [
+            {
+              id:1,
+              image: 'https://imgur.com/6nWI90H.png',
+              alt: 'Feelin cute might delete later picture'
+            }
+          ],
+          caption: 'Feelin cute might delete later',
+          numberOfLikes: 4,
+          likedByMe: false,
+          showWagImage: false,
+          commentString: '',
+          commentLog: [
+            {
+              id: 1,
+              name: 'Oliver',
+              comment: 'lookin good!'
+            }
+          ]
+        },
+        {
           id: 2,
           poster: 'Casper',
-          location: 'The Doghaus',
+          location: 'Forest Bark',
           displayedImageIndex: 0,
           images: [
             {
@@ -51,7 +76,7 @@ class App extends React.Component {
             name: 'Tavi',
             comment: 'omg so jelly'},
             {id: 2,
-            name: 'Oliver',
+            name: 'Indy',
             comment: 'Wish I were there!'},
           ]
         },
