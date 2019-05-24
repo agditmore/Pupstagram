@@ -19,13 +19,13 @@ const PostDisplay = (props) => {
                     </div>
                 </div>
             <div className="arrows-and-image-container">
-                <div className="column">
+                <div>
                 <LeftArrowButton
                     postItem={postItem}
                     onLeftArrowButtonClick={props.onLeftArrowButtonClick}
                 />
                 </div>
-                <div id="images-div" className="column">
+                <div>
                     <div className="main-image-div">
                         <img 
                             src={postItem.images[postItem.displayedImageIndex].image} 
@@ -33,10 +33,14 @@ const PostDisplay = (props) => {
                             onDoubleClick={(event) => props.onDoubleClick(event, postItem)}
                             className="image-container">
                         </img>
+                        {postItem.showWagImage === true 
+                            ?  <img src={Wag} alt="wag" className="wag-image" /> 
+                            : null
+                        }
                     </div>
-                    {postItem.showWagImage === true ?  <img src={Wag} alt="wag" className="wag-image" /> : null}
+                    
                 </div>
-                <div className="column">
+                <div>
                 <RightArrowButton
                     postItem={postItem}
                     onRightArrowButtonClick={props.onRightArrowButtonClick}
@@ -53,7 +57,7 @@ const PostDisplay = (props) => {
                         />
                         <p padding-right="3px">{postItem.numberOfLikes} wags</p>
                     </div>
-                    <div id="comment-container" className="column">
+                    <div className="comment-container">
                     <div>
                         <ShowOrHideCommentsButton 
                             postItem={postItem}
@@ -66,6 +70,7 @@ const PostDisplay = (props) => {
                             postItem={postItem} 
                             onKeyDown={props.onKeyDown}
                             onChange={props.onChange}
+                            onHideClickForComment={props.onHideClickForComment}
                         /> : null
                         }
                     </div>

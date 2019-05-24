@@ -34,7 +34,8 @@ class App extends React.Component {
             {
               id: 1,
               name: 'Oliver',
-              comment: 'lookin good!'
+              comment: 'lookin good!',
+              hide: false
             }
           ]
         },
@@ -67,17 +68,21 @@ class App extends React.Component {
           ],
           caption: 'WOW BEST DAY EVER',
           numberOfLikes: 3,
-          likedByMe: true,
+          likedByMe: false,
           showWagImage: false,
           showComments: true,
           commentString: '',
           commentLog: [
             {id: 1,
             name: 'Tavi',
-            comment: 'omg so jelly'},
+            comment: 'omg so jelly',
+            hide: false
+            },
             {id: 2,
             name: 'Indy',
-            comment: 'Wish I were there!'},
+            comment: 'Wish I were there!',
+            hide: false
+          },
           ]
         },
         {
@@ -106,10 +111,14 @@ class App extends React.Component {
           commentLog: [
             {id: 1,
             name: 'Casper',
-            comment: 'Wait what? Is something happening?'},
+            comment: 'Wait what? Is something happening?',
+            hide: false
+          },
             {id: 2,
             name: 'Pi',
-            comment: 'OMG BORK BORK BORK BORK BORK'},
+            comment: 'OMG BORK BORK BORK BORK BORK',
+            hide: false
+          },
           ],
         }
       ],
@@ -140,14 +149,13 @@ class App extends React.Component {
   }
 
   handleShowOrHideCommentsButtonClick = (event, changedPostItem) => {
-    const newArray3 = this.state.posts.map((postItem) => postItem.id === changedPostItem.id ? 
-      {
-        ...postItem,
-        showComments: !postItem.showComments,
-      }
-      :postItem)
       this.setState({
-        posts: newArray3
+        posts: this.state.posts.map((postItem) => postItem.id === changedPostItem.id ? 
+        {
+          ...postItem,
+          showComments: !postItem.showComments,
+        }
+        :postItem)
       })
   }
 
@@ -218,13 +226,13 @@ class App extends React.Component {
   }
 
   handleEnterPress = (event, urlString, captionString) => {
-    const urlArray = urlString.split(",")
-
-    const imageArray = urlArray.map(url => {
-      return {id: urlArray.indexOf(url)+1, image: url.trim(), alt: captionString + ' picture'}
-    })
-
     if (event.key === "Enter"){
+      const urlArray = urlString.split(",")
+
+      const imageArray = urlArray.map(url => {
+        return {id: urlArray.indexOf(url)+1, image: url.trim(), alt: captionString + ' picture'}
+      })
+
       let newObject = {
         id: this.state.posts.length+1,
         poster: 'Me',
@@ -250,12 +258,35 @@ class App extends React.Component {
     }
   }
 
+  handleHideClickForComment = (event, postId, commentId) => {
+    const changedCommentLog = this.state.posts.find((postItem) => 
+      postItem.id === postId).commentLog.map((commentItem) => 
+        commentItem.id === commentId 
+        ? {
+            ...commentItem, 
+            hide: true
+          }
+        : commentItem
+      );
+       
+    this.setState({
+      posts: this.state.posts.map((postItem) => 
+        postItem.id === postId 
+        ? {
+          ...postItem, 
+          commentLog: changedCommentLog 
+        }
+        : postItem)
+    })
+  }
+
   handleEnterPressForComment = (event, changedPostItem) => {
     if (event.key === "Enter"){
       let newComment = {
         id: this.state.posts.length+1,
         name: "me",
         comment: changedPostItem.commentString,
+        hide: false
       }
       this.setState({
         posts: this.state.posts.map((postItem) => postItem.id === changedPostItem.id ? 
@@ -276,7 +307,6 @@ class App extends React.Component {
       <div>
         <Header />
         <hr />
-        <div>{this.state.coolMessage}</div>
         <NewPostInput 
           onKeyDown={this.handleEnterPress}
           urlString={this.state.urlString}
@@ -297,6 +327,7 @@ class App extends React.Component {
           onRightArrowButtonClick={this.handleRightArrowButtonClick}
           onLeftArrowButtonClick={this.handleLeftArrowButtonClick}
           onDoubleClick={this.handleDoubleClick}
+          onHideClickForComment={this.handleHideClickForComment}
         />
       </div>
     )

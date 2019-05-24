@@ -61,7 +61,7 @@ h1 {
   flex: 20%;
 }
 
-#comment-container {
+.comment-container {
   border-style: solid;
   background-color: white;
   border-width: 1px;
@@ -143,7 +143,7 @@ button {
   max-width: 100px;
   max-height: 100px;
   z-index: 0;
-  position: relative;
+  position: absolute;
   left: 210px;
   bottom: 320px;
 }
@@ -211,6 +211,7 @@ button {
 
 .main-image-div {
   background-color: white;
+  position: relative;
   width: 500px;
   border-style: solid;
   border-width: 1px;
@@ -227,6 +228,11 @@ button {
 .comment {
   display: flex;
   padding-left: 7px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 350px;
+  min-width: 0;
+  overflow-x: scroll;
 }
 
 .comment-box {
@@ -234,4 +240,10 @@ button {
   column-count: 2;
   flex-direction: row;
   padding-bottom: 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.delete-comment-button {
+  max-height: 29px;
 }
