@@ -24,7 +24,7 @@ const PostDisplay = (props) => {
                         onDoubleClick={(event) => props.onDoubleClick(event, postItem)}
                         className="image-container">
                     </img>
-                    <img src={Wag} alt="wag" className="wag-image" />
+                    {postItem.showWagImage === true ?  <img src={Wag} alt="wag" className="wag-image" /> : null}
                 </div>
                 <div className="column">
                 <RightArrowButton
